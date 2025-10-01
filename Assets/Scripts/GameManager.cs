@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI ScoresText;
     public TextMeshProUGUI HighestScoresText;
     public TextMeshProUGUI YOUDIED;
+    public GameObject tutorPanel;
     public float screenBorderOffset = 0.3f;
 
     private Camera mainCamera;
@@ -22,9 +23,11 @@ public class GameManager : MonoBehaviour
 
     private int highestScore;
     private const string HighScoreKey = "HighScore";
+    private const string FirstLaunchKey = "FirstLaunch";
 
     private void Awake()
     {
+        StopGame();
         mainCamera = Camera.main;
         CalculateScreenBounds();
         _player = FindObjectOfType<PlayerController>();
@@ -142,5 +145,19 @@ public class GameManager : MonoBehaviour
     private void UpdateHighestScoreText()
     {
         HighestScoresText.text = $"Highest: {highestScore}";
+    }
+
+    public void StopGame()
+    {
+        Time.timeScale = 0;
+        Physics2D.autoSimulation = false;
+        tutorPanel.SetActive(true);
+    }
+
+    public void StartGame()
+    {
+        Time.timeScale = 1;
+        Physics2D.autoSimulation = true;
+        tutorPanel.SetActive(false);
     }
 }

@@ -15,9 +15,9 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI YOUDIED;
     public GameObject tutorPanel;
     public float screenBorderOffset = 0.3f;
+    public PlayerController _player;
 
     private Camera mainCamera;
-    private PlayerController _player;
     public float screenWidth;
     public float screenHeight;
 
@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviour
         StopGame();
         mainCamera = Camera.main;
         CalculateScreenBounds();
-        _player = FindObjectOfType<PlayerController>();
         _player.screenHeight = screenHeight;
         _player.screenWidth = screenWidth;
         RestartButton.gameObject.SetActive(false);
@@ -150,14 +149,14 @@ public class GameManager : MonoBehaviour
     public void StopGame()
     {
         Time.timeScale = 0;
-        Physics2D.autoSimulation = false;
+        _player.gameObject.GetComponent<Rigidbody2D>().simulated = false; 
         tutorPanel.SetActive(true);
     }
 
     public void StartGame()
     {
         Time.timeScale = 1;
-        Physics2D.autoSimulation = true;
+        _player.gameObject.GetComponent<Rigidbody2D>().simulated = true; 
         tutorPanel.SetActive(false);
     }
 }

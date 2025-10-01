@@ -988,6 +988,7 @@ MonoBehaviour:
   YOUDIED: {fileID: 1648705319}
   tutorPanel: {fileID: 2076003929}
   screenBorderOffset: 0.2
+  _player: {fileID: 1731515872}
   screenWidth: 0
   screenHeight: 0
 --- !u!4 &1317276967
@@ -1612,6 +1613,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1692198808}
   m_CullTransparentMesh: 1
+--- !u!114 &1731515872 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 197642864971578962, guid: ec1bb35d87a05284398080114320ad02, type: 3}
+  m_PrefabInstance: {fileID: 1119830604}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28f709df0f6cdf54089ead2262048a81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1925275729
 GameObject:
   m_ObjectHideFlags: 0
